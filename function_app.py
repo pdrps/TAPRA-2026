@@ -218,28 +218,6 @@ def extract_chamado_sla(myTimer: func.TimerRequest) -> None:
     except Exception as e:
         print(f"Erro ao conectar: {e}")
 
-@app.timer_trigger(schedule="0 * * * * *", arg_name="myTimer", run_on_startup=False,
-              use_monitor=False) 
-def extract_chamado_sla(myTimer: func.TimerRequest) -> None:
-
-    driver = "{ODBC Driver 18 for SQL Server}"
-    host_sql = os.getenv("HOST")
-    database_sql = os.getenv("DATABASE")
-    user_sql = os.getenv("USER")
-    pass_sql = os.getenv("PASSWORD")
-
-    #string de conexao
-    connection_string = (
-        f"Driver={driver};"
-        f"Server=tcp:{host_sql},1433;"
-        f"Database={database_sql};"
-        f"Uid={user_sql};"
-        f"Pwd={pass_sql};"
-        "Encrypt=yes;"
-        "TrustServerCertificate=no;"
-        "Connection Timeout=30;"
-    )
-
     #tentativa de conexao
     try:
         conexao = pyodbc.connect(connection_string)
