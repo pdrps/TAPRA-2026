@@ -20,7 +20,7 @@ jobs:
       id-token: write
       contents: read
     env:
-      AZURE_FUNCTIONAPP_NAME: 'azfunc-PHELIPI'
+      AZURE_FUNCTIONAPP_NAME: 'funcapp-tapra-pedro'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
